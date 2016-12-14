@@ -1,0 +1,21 @@
+{
+  "name": "chrome-remote-server",
+  "version": "0.0.1",
+  "description": "Chrome Remote server",
+  "main": "js/main.js",
+  "dependencies": {
+    "md5": "^2.2.1",
+    "restify": "^4.3.0",
+    "socket.io": "^1.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chrome",
+    "remote"
+  ],
+  "author": "Thomas Lanteigne",
+  "license": "ISC"
+}

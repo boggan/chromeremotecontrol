@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .section-title {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .entry-name {
+            width: 200px;
+            display: inline-block;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            padding-top: 5px;
+            max-width: 440px;
+        }
+
+        ul>li {
+            list-style: none;
+            margin-bottom: 5px;
+            max-width: 440px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]+label span {
+            display: inline-block;
+            width: 19px;
+            height: 19px;
+            margin: -1px 4px 0 0;
+            vertical-align: middle;
+            background: url(assets/images/check_radio_sheet.png) left top no-repeat;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked+label span {
+            background: url(assets/images/check_radio_sheet.png) -19px top no-repeat;
+        }
+    </style>
+    <script src="config.js"></script>
+    <script src="options.js"></script>
+</head>
+
+<body>
+    <div>
+        <span class="section-title">Network:</span>
+        <ul>
+            <li><span class="entry-name">Server: </span><input id="network-host" data-key="host" type="text" value="localhost" /></li>
+            <li><span class="entry-name">Port: </span><input id="network-port" data-key="port" type="number" value="7070" /></li>
+            <li><span class="entry-name">Reconnect interval (ms): </span><input id="network-reconnect" data-key="reconnectInterval" type="number" value="1000" /></li>
+        </ul>
+    </div>
+    <div>
+        <span class="section-title">Carousel:</span>
+        <ul>
+            <li>
+                <label for="chk-carousel">
+                    <span class="entry-name">Enabled:</span>
+                </label>
+                <input id="chk-carousel" data-key="enableCarousel" type="checkbox" checked="checked" name="chk-carousel" />
+                <label for="chk-carousel"><span><span></label>
+            </li>
+            <li>
+                <span class="entry-name">Cycle time (ms):</span>
+                <input id="carousel-cycle-time" data-key="carouselInterval" type="number" value="30000" min="5000" />
+            </li>
+        </ul>
+    </div>
+    <div>
+        <span class="section-title">Auto Reload:</span>
+        <ul>
+            <li>
+                <label for="chk-auto-reload">
+                        <span class="entry-name">Enabled:</span>
+                    </label>
+                <input id="chk-auto-reload" data-key="enableAutoReload" name="chk-auto-reload" type="checkbox" checked="checked" />
+                <label for="chk-auto-reload"><span></span></label>
+            </li>
+            <li>
+                <span class="entry-name">Reload Cycle time (ms):</span>
+                <input id="auto-reload-cycle-time" data-key="autoReloadInterval" type="number" value="360000" min="30000" />
+            </li>
+        </ul>
+    </div>
+    <div>
+        <span class="section-title">Permissions:</span>
+        <ul>
+            <li>
+                <label for="chk-add">
+                        <span class="entry-name">Allow Add</span>
+                    </label>
+                <input id="chk-add" data-key="allowAdd" name="chk-add" type="checkbox" />
+                <label for="chk-add"><span></span></label>
+            </li>
+            <li>
+                <label for="chk-remove">
+                        <span class="entry-name">Allow Remove</span>
+                    </label>
+                <input id="chk-remove" data-key="allowRemove" name="chk-remove" type="checkbox" checked="checked" />
+                <label for="chk-remove"><span></span></label>
+            </li>
+            <li>
+                <label for="chk-reload">
+                        <span class="entry-name">Allow Reload</span>
+                    </label>
+                <input id="chk-reload" data-key="allowReload" name="chk-reload" type="checkbox" checked="checked" />
+                <label for="chk-reload"><span></span></label>
+            </li>
+            <li>
+                <label for="chk-select">
+                        <span class="entry-name">Allow Selection</span>
+                    </label>
+                <input id="chk-select" data-key="allowSelect" name="chk-select" type="checkbox" checked="checked" />
+                <label for="chk-select"><span></span></label>
+            </li>
+        </ul>
+    </div>
+    <hr />
+    <div>
+        <button id="reset-btn">Reset to defaults</button>
+        <button id="save-btn">Save</button>
+    </div>
+</body>
+
+</html>

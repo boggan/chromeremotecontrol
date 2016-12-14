@@ -1,0 +1,26 @@
+{
+  "name": "client",
+  "authors": [
+    "boggan <boggan@gmail.com>"
+  ],
+  "description": "chrome remote dashboard client",
+  "main": "index.html",
+  "keywords": [
+    "chrome",
+    "remote"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "js-md5": "md5#^0.4.1"
+  }
+}
