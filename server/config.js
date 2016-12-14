@@ -4,7 +4,7 @@ const config = {
     },
 
     security: {
-        password: "Monkey2020"
+        password: "*ChangePassword*!"
     },
 
     client_web_path: "../client"
