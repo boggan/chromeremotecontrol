@@ -4,38 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>Chrome Remote Control Dashboard</title>
-    <style>
-        .active {
-            border: 1px solid rgb(53, 171, 24);
-        }
 
-        button {
-            margin-right: 5px;
-        }
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
-        header>h1 {
-            text-align: center;
-            text-decoration: underline;
-        }
-
-        #login-container {
-            /*border: 1px SOLID #d3d3d3;*/
-            padding: 6px;
-            width: 174px;
-            margin: 0 auto;
-            display: none;
-        }
-
-        #login-btn {}
-
-        #content-container {
-            display: none;
-        }
-
-        #tabs-list>li {
-            padding: 5px;
-        }
-    </style>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/js-md5/build/md5.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
@@ -46,18 +17,14 @@
 
 <body>
     <div id="login-container">
-        <p>
-            <span>Login: </span>
-            <input id="login-username" type="text" value="admin" readonly="readonly" />
-        </p>
+        <label for="login-username">Login: </label>
+        <input id="login-username" type="text" value="admin" readonly="readonly" />
 
-        <p>
-            <span>Password: </span>
-            <input id="login-password" type="password" placeholder="-- enter password --" />
-        </p>
+        <label for="login-password">Password: </label>            
+        <input id="login-password" type="password" placeholder="-- enter password --" />
 
-        <label for="login-remember">Remember me ? <input id="login-remember" type="checkbox" checked="checked"/></label>
-        <hr />
+        <label class="remember" for="login-remember">Remember me ? <input id="login-remember" type="checkbox" checked="checked"/></label>
+
         <button id="login-btn">login</button>
     </div>
 
