@@ -8,7 +8,7 @@ Allows remote control of chrome tabs through web application
 ## Installation
 
 ### Server
-Go to the server folder and run the following commands: 
+Go to the **server** folder and run the following commands: 
 - install dependencies via: npm install
 - edit config.js to enter a password of your choosing
 - execute via: node main.js
@@ -18,6 +18,9 @@ For now, the chrome extension is not currently published on the store, so you'll
 - install extension by clicking on **Load unpacked extension** and select the **extension** folder of the application
 
 ## Web
+Go to **client** folder
+- install dependencies via: bower install
+
 Once server is **running** and extension is **installed** on the slave chrome window, 
 visit http://&lt;machine where server runs&gt;:7070
 
