@@ -8,11 +8,12 @@ function render() {
 
     if (g_sAuthToken) {
         $('#login-container').hide();
-        $('#content-container').show();
+        $('section.settings, section.tabs, #logout-btn').show();
+        
         l_oPromise = renderContent();
     } else {
         $('#login-container').show();
-        $('#content-container').hide();
+        $('section.settings, section.tabs, #logout-btn').hide();
         l_oPromise = new Promise(i_oResolve => i_oResolve());
     }
 
@@ -126,19 +127,34 @@ function _renderTabList(i_aTabsList) {
         }
         l_sHTML += '>';
 
-        if (g_oConfig.allowRemove) {
-            l_sHTML += '<button class="remove-tab-btn" data-tabid="' + i_oTab.id + '">Remove</button>';
+        l_sHTML += '<div>';
+
+        if(i_oTab.favIconUrl){
+            l_sHTML += '<img class="favicon" src="' + i_oTab.favIconUrl + '">';            
+        }else{
+            l_sHTML += '<div class="flex-filler"></div>';                        
+        }
+
+        if(i_oTab.title){
+            l_sHTML += '<a class="title" target="_blank" href="' + i_oTab.url  + '">' + i_oTab.title + '</a>';            
+        }
+
+        l_sHTML += '</div><div>';
+
+        if (g_oConfig.allowSelect) {
+            l_sHTML += '<button class="select-tab-btn btn" data-tabid="' + i_oTab.id + '">Select</button>';
         }
 
         if (g_oConfig.allowReload) {
-            l_sHTML += '<button class="reload-tab-btn" data-tabid="' + i_oTab.id + '">Reload</button>';
+            l_sHTML += '<button class="reload-tab-btn btn" data-tabid="' + i_oTab.id + '">Reload</button>';
         }
 
-        if (g_oConfig.allowSelect) {
-            l_sHTML += '<button class="select-tab-btn" data-tabid="' + i_oTab.id + '">Select</button>';
+        if (g_oConfig.allowRemove) {
+            l_sHTML += '<button class="remove-tab-btn btn danger-bg" data-tabid="' + i_oTab.id + '">Remove</button>';
         }
 
-        l_sHTML += '<span class="chrome-tab-url">' + i_oTab.url + '</span>';
+        l_sHTML += '</div>';
+
         l_sHTML += '</li>';
         l_oDOMTabsList.append(l_sHTML);
     });
