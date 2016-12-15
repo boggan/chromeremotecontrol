@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Chrome Remote Control Dashboard</title>
 
-<head>
-    <meta charset="utf-8">
-    <title>Chrome Remote Control Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/js-md5/build/md5.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <section class="header">
+            <h1> Chrome Remote Control Dashboard </h1>
+            <div class="flex-filler"></div>
+            <button class="btn" id="logout-btn">Logout</button>        
+        </section>
 
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/js-md5/build/md5.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-</head>
-<header>
-    <h1> Chrome Remote Control Dashboard </h1>
-</header>
+        <section class="content">
+            <div id="login-container">
+                <label for="login-username">Login: </label>
+                <input id="login-username" type="text" value="admin" readonly="readonly" />
 
-<body>
-    <div id="login-container">
-        <label for="login-username">Login: </label>
-        <input id="login-username" type="text" value="admin" readonly="readonly" />
+                <label for="login-password">Password: </label>            
+                <input id="login-password" type="password" placeholder="-- enter password --" />
 
-        <label for="login-password">Password: </label>            
-        <input id="login-password" type="password" placeholder="-- enter password --" />
+                <label class="remember" for="login-remember">Remember me ? <input id="login-remember" type="checkbox" checked="checked"/></label>
 
-        <label class="remember" for="login-remember">Remember me ? <input id="login-remember" type="checkbox" checked="checked"/></label>
-
-        <button id="login-btn">login</button>
-    </div>
-
-    <div id="content-container">
-        <button id="logout-btn">logout</button>
-
-        <h3>Chrome Extensions</h3>
-        <select id="chrome-list"></select>
-
-        <div id="carousel-ctrl-container">
-            <h3>Carousel Control</h3>
-            <p>Status: <span id="carousel-status">unknown</span></p>
-            <p>Cycle Time (ms) : <input id="carousel-cycle-time" type="number" value="30000" min="5000" /></p>
-            <button id="carousel-start-btn" data-run="true">start</button>
-            <button id="carousel-stop-btn" data-run="false">stop</button>
-        </div>
-
-        <div id="autoreload-ctrl-container">
-            <h3>Auto Reload Control</h3>
-            <p>Status: <span id="autoreload-status">unknown</span></p>
-            <p>Reload Cycle Time (ms) : <input id="auto-reload-cycle-time" type="number" value="30000" min="5000" /></p>
-        </div>
-
-        <div id="tabs-ctrl-container">
-            <h3>Tabs Control</h3>
-            <div id="add-tab-container">
-                <button id="add-tab-btn">Add Tab</button>
-                <input type="text" id="new-tab-url" placeholder="-- enter url for new tab here --" />
+                <button id="login-btn">login</button>
             </div>
-            <ul id="tabs-list">
-            </ul>
-        </div>
-    </div>
-</body>
 
+            <section class="settings">
+                <div class="category extensions">
+                    <div class="title">Chrome Extensions</div>
+                    <label for="chrome-list">Extension's UUID</label>
+                    <select id="chrome-list"></select>
+                </div>
+                <div class="category extensions">
+                    <div class="title">
+                        <span>Carousel Control</span>
+                        <div class="pill primary-bg"><span id="carousel-status">unknown</span></div>
+                    </div>
+                    <label for="carousel-cycle-time">Cycle Time (ms)</label>
+                    <input id="carousel-cycle-time" type="number" value="30000" min="5000" />
+                    <div class="flex-line">
+                        <button id="carousel-stop-btn" class="btn danger-bg" data-run="false">stop</button>
+                        <button id="carousel-start-btn" class="btn" data-run="true">start</button>
+                    </div>
+                </div>
+                <div class="category extensions">
+                    <div class="title">
+                        <span>Auto Reload Control</span>
+                        <div class="pill primary-bg"><span id="autoreload-status">unknown</span></div>
+                    </div>
+                    <label for="auto-reload-cycle-time">Reload Cycle Time (ms)</label>
+                    <input id="auto-reload-cycle-time" type="number" value="30000" min="5000" />
+                </div>                
+            </section>
+
+            <section class="tabs">
+                <div class="flex-line">
+                    <h1>Tabs Control</h1>
+                    <div class="flex-filler"></div>
+                    <div id="add-tab-container">
+                        <input type="text" id="new-tab-url" placeholder="New tab URL" />                    
+                        <button id="add-tab-btn" class="btn" title="Add a new tab">+</button>
+                    </div>
+                </div>
+                
+                <ul id="tabs-list"></ul>
+            </section>
+        </section>
+    </body>
 </html>
