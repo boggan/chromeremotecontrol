@@ -6,7 +6,8 @@
   "dependencies": {
     "md5": "^2.2.1",
     "restify": "^4.3.0",
-    "socket.io": "^1.7.1"
+    "socket.io": "^1.7.1",
+    "ws": "^1.1.1"
   },
   "devDependencies": {},
   "scripts": {
